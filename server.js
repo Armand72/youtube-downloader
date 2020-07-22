@@ -17,6 +17,7 @@ app.use(
 app.use(cors());
 
 router.get("/api/download", async (req, res) => {
+  console.log("here");
   try {
     const URL = req.query.URL;
 
@@ -45,6 +46,7 @@ router.get("/api/download", async (req, res) => {
 
 router.get("/api/getInfo", async (req, res) => {
   const URL = req.query.URL;
+  console.log(URL);
 
   async function getData(URL) {
     const info = await ytdl.getInfo(URL).catch((err) => {
@@ -65,11 +67,11 @@ router.get("/api/getInfo", async (req, res) => {
   });
 });
 
-app.use(express.static(path.join(__dirname, "client/build")));
+// app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+// });
 
 const port = process.env.PORT || 4000;
 
