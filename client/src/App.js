@@ -33,7 +33,7 @@ class App extends Component {
         if (res.ok) {
           return res.json();
         } else {
-          throw new Error();
+          console.log(res);
         }
       })
       .then((json) => {
