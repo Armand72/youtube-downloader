@@ -18,7 +18,6 @@
   },
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:4000",
   "bugs": {
     "url": "https://github.com/Armand72/youtube-downloader/issues"
   },
