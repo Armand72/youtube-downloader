@@ -19,7 +19,7 @@ app.use(
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("/api/download", async (req, res) => {
+app.get("api/download", async (req, res) => {
   console.log("here");
   try {
     const URL = req.query.URL;
@@ -47,7 +47,7 @@ app.get("/api/download", async (req, res) => {
   }
 });
 
-app.get("/api/getInfo", async (req, res) => {
+app.get("api/getInfo", async (req, res) => {
   const URL = req.query.URL;
   console.log(URL);
 
