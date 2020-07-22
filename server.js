@@ -53,7 +53,7 @@ app.get("api/getInfo", async (req, res) => {
 
   async function getData(URL) {
     const info = await ytdl.getInfo(URL).catch((err) => {
-      throw err;
+      throw { err, URL };
     });
     const image = info.player_response.videoDetails.thumbnail.thumbnails.pop()
       .url;
@@ -66,7 +66,7 @@ app.get("api/getInfo", async (req, res) => {
   }
 
   getData(URL).catch((err) => {
-    throw err;
+    throw { err, URL };
   });
 });
 
