@@ -40,8 +40,8 @@ class App extends Component {
         this.setState({ imageData: [...this.state.imageData, json] });
         this.setState({ linkArray: [...this.state.linkArray, link] });
       })
-      .catch(() => {
-        console.log("wrong link!");
+      .catch((err) => {
+        console.log(res);
       });
 
     this.setState({ link: "" });
