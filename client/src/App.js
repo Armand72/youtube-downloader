@@ -26,7 +26,7 @@ class App extends Component {
 
     const { link } = this.state;
 
-    fetch(` ${SERVER_ADDRESS} + /api/getInfo?URL=${link}`, {
+    fetch(` ${SERVER_ADDRESS}/api/getInfo?URL=${link}`, {
       method: "GET",
     })
       .then((res) => {
@@ -54,7 +54,7 @@ class App extends Component {
     var tobeDownloaded = linkArray[0];
 
     if (tobeDownloaded) {
-      window.location.href = `${SERVER_ADDRESS} + /api/download?URL=${tobeDownloaded}`;
+      window.location.href = `${SERVER_ADDRESS}/api/download?URL=${tobeDownloaded}`;
 
       linkArray.splice(0, 1);
       imageData.splice(0, 1);
