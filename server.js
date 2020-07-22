@@ -8,15 +8,18 @@ var path = require("path");
 const parameterize = require("parameterize");
 const router = require("express-promise-router")();
 
+app.use(cors());
+
 app.use(parser.json());
 app.use(
   parser.urlencoded({
     extended: true,
   })
 );
-app.use(cors());
 
-router.get("/api/download", async (req, res) => {
+app.use(express.static(path.join(__dirname, "client/build")));
+
+app.get("/api/download", async (req, res) => {
   console.log("here");
   try {
     const URL = req.query.URL;
@@ -44,7 +47,7 @@ router.get("/api/download", async (req, res) => {
   }
 });
 
-router.get("/api/getInfo", async (req, res) => {
+app.get("/api/getInfo", async (req, res) => {
   const URL = req.query.URL;
   console.log(URL);
 
@@ -66,8 +69,6 @@ router.get("/api/getInfo", async (req, res) => {
     throw err;
   });
 });
-
-app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));

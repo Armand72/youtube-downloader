@@ -41,7 +41,7 @@ class App extends Component {
         this.setState({ linkArray: [...this.state.linkArray, link] });
       })
       .catch((err) => {
-        console.log(res);
+        console.log(err);
       });
 
     this.setState({ link: "" });
