@@ -16,8 +16,6 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, "client/build")));
-
 router.get("/download", async (req, res) => {
   try {
     const URL = req.query.URL;
@@ -66,6 +64,8 @@ router.get("/getInfo", async (req, res) => {
     throw err;
   });
 });
+
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
