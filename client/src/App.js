@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { motion } from "framer-motion";
 import "./App.css";
 
+const SERVER_ADDRESS = process.env.REACT_APP_SERVER_ADDRESS;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ class App extends Component {
 
     const { link } = this.state;
 
-    fetch(`http://localhost:4000/getInfo?URL=${link}`, {
+    fetch(` ${SERVER_ADDRESS} + getInfo?URL=${link}`, {
       method: "GET",
     })
       .then((res) => {
@@ -52,7 +54,7 @@ class App extends Component {
     var tobeDownloaded = linkArray[0];
 
     if (tobeDownloaded) {
-      window.location.href = `http://localhost:4000/download?URL=${tobeDownloaded}`;
+      window.location.href = `${SERVER_ADDRESS} + download?URL=${tobeDownloaded}`;
 
       linkArray.splice(0, 1);
       imageData.splice(0, 1);
