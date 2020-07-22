@@ -21,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/Armand72/youtube-downloader/issues"
   },
-  "proxy": "http://localhost:4000",
   "homepage": "https://github.com/Armand72/youtube-downloader#readme",
   "dependencies": {
     "audio-loader": "^1.0.3",
