@@ -26,9 +26,7 @@ class App extends Component {
 
     const { link } = this.state;
 
-    console.log(`http://localhost:4000/api/getInfo?URL=${link}`);
-
-    fetch(`getInfo?URL=${link}`, {
+    fetch(`api/getInfo?URL=${link}`, {
       method: "GET",
     })
       .then((res) => {
