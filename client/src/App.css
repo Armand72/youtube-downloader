@@ -24,7 +24,7 @@ body {
 }
 
 .input {
-  width: 100%;
+  width: 70vw;
   border: 2px solid #ff8906;
   padding: 20px;
   font-size: 1.2rem;
@@ -34,7 +34,7 @@ body {
   background-color: #f25f4c;
   border: none;
   color: white;
-
+  width: 20%;
   font-size: 1.5rem;
   font-weight: bold;
   border: 2px solid #f25f4c;
@@ -161,5 +161,9 @@ img {
 
   .container {
     width: 90%;
+  }
+
+  .input {
+    width: 100%;
   }
 }

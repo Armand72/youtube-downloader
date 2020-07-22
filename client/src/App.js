@@ -24,15 +24,22 @@ class App extends Component {
 
     const { link } = this.state;
 
-    this.setState({ linkArray: [...this.state.linkArray, link] });
-
     fetch(`http://localhost:4000/getInfo?URL=${link}`, {
       method: "GET",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) {
+          res.json();
+        } else {
+          throw new Error();
+        }
+      })
       .then((json) => {
-        console.log(json);
         this.setState({ imageData: [...this.state.imageData, json] });
+        this.setState({ linkArray: [...this.state.linkArray, link] });
+      })
+      .catch(() => {
+        console.log("wrong link!");
       });
 
     this.setState({ link: "" });
@@ -42,16 +49,19 @@ class App extends Component {
     e.preventDefault();
 
     let { linkArray, imageData } = this.state;
-
     var tobeDownloaded = linkArray[0];
 
-    window.location.href = `http://localhost:4000/download?URL=${tobeDownloaded}`;
+    if (tobeDownloaded) {
+      window.location.href = `http://localhost:4000/download?URL=${tobeDownloaded}`;
 
-    linkArray.splice(0, 1);
-    imageData.splice(0, 1);
+      linkArray.splice(0, 1);
+      imageData.splice(0, 1);
 
-    this.setState({ linkArray });
-    this.setState({ imageData });
+      this.setState({ linkArray });
+      this.setState({ imageData });
+    } else {
+      console.log("no link provided");
+    }
   };
 
   remove = (index) => {

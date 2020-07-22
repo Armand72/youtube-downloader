@@ -1,0 +1,35 @@
+{
+  "name": "youtube-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "10.15.2",
+    "npm": "6.14.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armand72/youtube-downloader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "proxy": "http://localhost:4000",
+  "bugs": {
+    "url": "https://github.com/Armand72/youtube-downloader/issues"
+  },
+  "homepage": "https://github.com/Armand72/youtube-downloader#readme",
+  "dependencies": {
+    "audio-loader": "^1.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.0.1",
+    "nodemon": "^2.0.4",
+    "parameterize": "^1.0.0",
+    "ytdl-core": "^3.1.2"
+  }
+}
