@@ -17,10 +17,7 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, "client/build")));
-
-app.get("api/download", async (req, res) => {
-  console.log("here");
+app.get("/api/download", async (req, res) => {
   try {
     const URL = req.query.URL;
 
@@ -47,9 +44,8 @@ app.get("api/download", async (req, res) => {
   }
 });
 
-app.get("api/getInfo", async (req, res) => {
+app.get("/api/getInfo", async (req, res) => {
   const URL = req.query.URL;
-  console.log(URL);
 
   async function getData(URL) {
     const info = await ytdl.getInfo(URL).catch((err) => {
@@ -69,6 +65,8 @@ app.get("api/getInfo", async (req, res) => {
     throw new Error(URL);
   });
 });
+
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));

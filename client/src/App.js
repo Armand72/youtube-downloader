@@ -30,6 +30,7 @@ class App extends Component {
       method: "GET",
     })
       .then((res) => {
+        console.log("here");
         if (res.ok) {
           return res.json();
         } else {
