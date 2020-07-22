@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const fs = require("fs");
+
 const parser = require("body-parser");
 const ytdl = require("ytdl-core");
 const app = express();
@@ -8,15 +8,15 @@ var path = require("path");
 const parameterize = require("parameterize");
 const router = require("express-promise-router")();
 
-app.use(cors());
 app.use(parser.json());
 app.use(
   parser.urlencoded({
     extended: true,
   })
 );
+app.use(cors());
 
-router.get("/download", async (req, res) => {
+router.get("/api/download", async (req, res) => {
   try {
     const URL = req.query.URL;
 
@@ -43,7 +43,7 @@ router.get("/download", async (req, res) => {
   }
 });
 
-router.get("/getInfo", async (req, res) => {
+router.get("/api/getInfo", async (req, res) => {
   const URL = req.query.URL;
 
   async function getData(URL) {
