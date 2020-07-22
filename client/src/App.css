@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  color: white;
+  background-color: #0f0e17;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.container-button {
+  display: contents;
+}
+
+.container-input {
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  border: 2px solid #ff8906;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.button {
+  background-color: #f25f4c;
+  border: none;
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid #f25f4c;
+  cursor: pointer;
+}
+
+.button-add {
+  background-color: #ff8906;
+  border: none;
+  color: white;
+  width: 20%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid #ff8906;
+  cursor: pointer;
+}
+
+.list {
+  background-color: #475d5b;
+  color: white;
+  font-size: 1.2rem;
+  width: fit-content;
+  display: flex;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container-list {
+  display: flex;
+  width: 45%;
+  background-color: #f25f4c;
+  align-items: center;
+  padding: 15px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  cursor: pointer;
+}
+
+.top {
+  display: flex;
+}
+
+.right {
+  padding: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+}
+
+.right > p {
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.container-image {
+  width: 40%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.container-thumbnail {
+  width: 50px;
+  height: 50px;
+}
+.container-thumbnail > img {
+  border-radius: 50%;
+}
+
+.author {
+  font-size: 1.2rem;
+
+  padding-right: 10px;
+  font-weight: normal;
+}
+
+.song {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 789px) {
+  .button {
+    padding: 10px;
+    width: 50%;
+  }
+
+  .button-add {
+    padding: 10px;
+    width: 50%;
+  }
+
+  .container-input {
+    flex-wrap: wrap;
+  }
+
+  .list {
+    flex-direction: column;
+  }
+
+  .container-list {
+    margin: auto;
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
