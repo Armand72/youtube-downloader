@@ -26,12 +26,12 @@ class App extends Component {
 
     const { link } = this.state;
 
-    fetch(`api/getInfo?URL=${link}`, {
+    fetch(`${SERVER_ADDRESS}/api/getInfo?URL=${link}`, {
       method: "GET",
     })
       .then((res) => {
         if (res.ok) {
-          res.json();
+          return res.json();
         } else {
           throw new Error();
         }
@@ -54,7 +54,7 @@ class App extends Component {
     var tobeDownloaded = linkArray[0];
 
     if (tobeDownloaded) {
-      window.location.href = `https://ytdl-mp3-downloader.herokuapp.com/api/download?URL=${tobeDownloaded}`;
+      window.location.href = `${SERVER_ADDRESS}/api/download?URL=${tobeDownloaded}`;
 
       linkArray.splice(0, 1);
       imageData.splice(0, 1);
@@ -97,7 +97,7 @@ class App extends Component {
                 </button>
               </div>
             </form>
-            {/* {!!this.state.imageData.length && (
+            {!!this.state.imageData.length && (
               <div className="list">
                 {this.state.imageData.map((props, index) => {
                   return (
@@ -127,7 +127,7 @@ class App extends Component {
                   );
                 })}
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </>
